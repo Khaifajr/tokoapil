@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controller;
+namespace App\Http\Controllers;
 
 use App\Models\Login;
 use App\Models\Member;
