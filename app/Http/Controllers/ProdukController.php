@@ -9,8 +9,8 @@ class ProdukController extends Controller
 {
     public function create(Request $request)
     {           
-        $kodeProduk = $request->input('kode_produk');
-        $namaProduk = $request->input('nama_produk');
+        $kodeProduk = $request->input('kode_produk'); 
+        $namaProduk = $request->input('nama_produk'); 
         $harga = $request->input('harga');
 
         $produk = Produk::create([

@@ -25,5 +25,5 @@ $router->group(['prefix' => 'produk'], function ($router) {
     $router->get('/',['uses'=> 'ProdukController@list']);
     $router->get('/{id}',['uses' => 'ProdukController@show']);
     $router->post('/{id}/update', ['uses' => 'ProdukController@update']);
-    $router->delete('/(id)',['uses' => 'ProdukController@delete']);
+    $router->delete('/{id}',['uses' => 'ProdukController@delete']);
 });
