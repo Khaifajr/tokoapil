@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Login;
 use App\Models\Member;
 use Illuminate\Http\Request;
-use Illuminate\Support\Fascades\Hash;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
