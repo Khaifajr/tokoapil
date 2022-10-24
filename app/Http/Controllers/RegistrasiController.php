@@ -6,9 +6,9 @@ use App\Models\Registrasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class RegistrasiController  extends Controller
+class RegistrasiController extends Controller
 {
-    public function registrasi(Request  $request)
+    public function registrasi(Request $request)
     {
         $nama =  $request->input('nama'); 
         $email = $request->input('email');

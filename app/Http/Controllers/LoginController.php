@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\COntroller;
+namespace App\Http\Controller;
 
 use App\Models\Login;
 use App\Models\Member;
@@ -13,6 +13,7 @@ class LoginController extends Controller
     {
         $email = $request->input('email');
         $password = $request->input('password');
+
         $member = Member::query()->firstWhere(['email'=>$email]);
         if ($member==null) {return $this->responseHasil(400, false,'Email tidak ditemukan');}
         if(!Hash::check($password, $member->password)) {return $this->responseHasil(400, false, 'Password tidak valid');
@@ -22,7 +23,7 @@ class LoginController extends Controller
         'auth_key' => $this->RandomString(),
     ]);
     if (!$login) {
-        return Sthis->responseHasil(401, false, 'Unauthorized');
+        return $this->responseHasil(401, false, 'Unauthorized');
         }
         $data =  [
         'token' =>  $login->auth_key,
