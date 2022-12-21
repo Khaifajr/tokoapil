@@ -2,57 +2,53 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
+use App\Models\Catatan;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
     public function create(Request $request)
     {           
-        $kodeProduk = $request->input('kode_produk'); 
-        $namaProduk = $request->input('nama_produk'); 
-        $harga = $request->input('harga');
+        $title = $request->input('title'); 
+        $konten = $request->input('konten'); 
 
-        $produk = Produk::create([
-            'kode_produk' => $kodeProduk,
-            'nama_produk' => $namaProduk,
-            'harga' => $harga,
+        $catatan = Catatan::create([
+            'title' => $title,
+            'konten' => $konten,
         ]);
-        return $this->responseHasil(200,true, $produk);
+        return $this->responseHasil(200,true, $catatan);
     }
 
     public function list()
     {
-        $produk = Produk::all();
-        return $this->responseHasil(200, true,$produk);
+        $catatan = Catatan::all();
+        return $this->responseHasil(200, true,$catatan);
     }
 
     public function show($id)
     {
-        $produk = Produk::findOrFail($id);
-        return $this->responseHasil(200, true, $produk);
+        $catatan = Catatan::findOrFail($id);
+        return $this->responseHasil(200, true, $catatan);
     }
 
     public function update(Request $request, $id)
     {
-        $kodeProduk = $request->input('kode_produk'); 
-        $namaProduk = $request->input('nama_produk');
-        $harga = $request->input('harga');
+        $title = $request->input('title'); 
+        $konten = $request->input('konten');
 
-        $produk = Produk::findOrFail($id); 
+        $catatan = Catatan::findOrFail($id); 
         $result = 
-        $produk->update([
-            'kode_produk' => $kodeProduk,
-            'nama_produk' => $namaProduk,
-            'harga' => $harga,
+        $catatan->update([
+            'title' => $title,
+            'konten' => $konten,
         ]);
         return $this->responseHasil(200,  true, $result);   
     }
 
     public function delete($id)
     {
-        $produk = Produk::findOrFail($id);
-        $delete = $produk->delete();
+        $catatan = Catatan::findOrFail($id);
+        $delete = $catatan->delete();
         return $this->responseHasil(200, true, $delete);
     }
 }

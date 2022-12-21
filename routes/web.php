@@ -20,7 +20,7 @@ $router->get('/', function () use ($router) {
 $router->post('/registrasi', ['uses' => 'RegistrasiController@registrasi']); 
 $router->post('/login', ['uses'=> 'LoginController@login']);
 
-$router->group(['prefix' => 'produk'], function ($router) {
+$router->group(['prefix' => 'catatan'], function ($router) {
     $router->post('/',['uses' => 'ProdukController@create']);
     $router->get('/',['uses'=> 'ProdukController@list']);
     $router->get('/{id}',['uses' => 'ProdukController@show']);
